@@ -1,0 +1,40 @@
+{
+  "comment": "Relay event contents (base64 packets) and whether each is a chat message (services/packet-kind.ts). Shared with the push service and the iOS notification extension.",
+  "vectors": [
+    {
+      "name": "message",
+      "base64": "AQQDAAABi8/laAAAAAAAlpRKXP2gJuJUa1N1GlLvJTlFVRp+gDFKZlVVgdHhMCLysOZE0F98DpdyucBebPznjJzf/Dyo4gJhavxzUctjZLDmdWjj5eqpo2Pg2lmMXP6/fsltrJHpCWY42lrh8KwdrfKdVJOX93uotEb0PUJCdaqovXHn5uEZH5h1incwTYwjp7X3cth+tQiznXJbeQLWka7RnZpui1paWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+      "chatMessage": true
+    },
+    {
+      "name": "message fragment 0",
+      "base64": "AQgDAAABi8/laAAAAAAB1YYONHjBELsN+UrBUTZZ+QwDAAAAA1guK2D/I3SP8n3Z520TGHfvpugSvM5SeRGu/FqT9W/PY5Q22nZI5H2zVe/iMoDVahb+BM+hVi/v8uo1pXgcXsv794+FtEQTnfF3rL7IKnHjHzVHfIOznHib6yFJChNKijGFwL7ZdXtrq/OxUtkQ0H0s0RShlQCrqdPnHk9ZM9NsLlFaqcc+UkK1BGVbFjeQeTgaZfDdFDUpGsMh2zYfSBz6mfdFnudum5T1wjrTfABQn7SKQ72qOhnJa8uUbSD08s1KBpzP6zKH84CPWPC2zjDSC84VUBXnoiQzQ93ZjoeQnKIBWJfaDjOuOET/2PRcZZuJtxhygf5/+Aru7hYWAVO4nv43aqEDZinxAN+LuxPzNPAMK3l5M3ucNFabdyeGY2yFdmkVMh/icSTTQWcaha3eWW+PcrcKHDJOkXXaiNfu0Xrf+2kqsG5SYaCRrSu/HSA8kYwlGLkwLUeTZ/mkAReofynRVjk1mA9JAx7MyNkG23cOdUik0AZj5p/A1HJ9TtyZj8ShMF0vkJ+5Tiz9YDnFs2DQl2syA7a9hWpnl6L85Qe3KQAyAFbp0ZaYzO2fPxlZOYzlpl/go6f+K5GTJEAbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxs=",
+      "chatMessage": true
+    },
+    {
+      "name": "message fragment 1",
+      "base64": "AQgDAAABi8/laAAAAAAB1YYONHjBELsN+UrBUTZZ+QwDAAEAA/OTu10eBExQLWIxWNyzwDmadCQdWMRmbSSR3szdR3rf70S0cVH5OGRy49z83KbXDoj2AcwGewvIHmfhMhCekhw2nnkgJpR1dv5uXilfaPaffeV4+Q8hxbB9rPukWrWZxhzghz8FMlmTKOnkACuX/nlB4v7rReo1DkdFXyhc/4foEkn60dolVVDkKHB5tx/iHI78KfsWpmHBT6yIKweLX7oJ+CjlcB4grcdQNNJvoiFAYDRsoYbDagVZrAdq+L5zdrCtHQPQr2xpPJM//H/zeoNN9vLhRXmu+R1B9Dhid6ku2zHrkUUrKpK2Gs+9ql3CLlvB5lP/6TtmVrthYmNWPvCjxDFoOB/vdGJt5Pe0HfAGe4TeAuH/75iPurTLxB760klu3lY8RlsXgV1IDHSyS5C0WGI3Ds/tALtfmrPWuIcK/yoQWykhURNXDaHTFEZZ7hxRmoNmPZY2FFLGNUf/lkxWmrsKKJhDXHNXgSgNKGU9ggyPp1QMfYtpqqVDGuwlzTmh+nTly1bGgax/EEDIiu4Z7lfQjvwUypmdvg+hZ0svnYQo5Z/MoWnvD0L28LJUxxiZaVOnrEP9cS1HpijplkUbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxs=",
+      "chatMessage": false
+    },
+    {
+      "name": "compressed message fragment 0",
+      "base64": "AQgDAAABi8/laAABAAAANwAAAdV4nHuV2HnpqaHPvah45mlyv49/YWZgYGBeHhhSvWaCcY9lCGtLw+dTrgyjYEgBAAFGEG25ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5uQ==",
+      "chatMessage": true
+    },
+    {
+      "name": "group control fragment 0",
+      "base64": "AQgDAAABi8/laAAAAAAB1UYCm0v+yPzHs0YZu4p+LxsFAAAAAz9d2RA69S9IFHVCw6zM28flc56kcsDQcj2RboIHTAzx7DstS9ePZT4KFjrUkZjoOOBtG95oY3EskcN0bnloCB4lmOczazhhYlPq4ssztbD6qx2BzHt6P94S+tMaYfXlnT923NAAQZs4OIueMgBF648FXodfX2Jj1ep+GCkrIZfJXLQaF7lofi49HBtwxZFGh6sNz714vltyD+vU6bSJUokC3MaFvw4RN1wIPwijmqk6FNozqkAGEh5ctHZpZAheAM5kmx3/NrlTz+a1jNgOlSn8FTl6HbHk6AeJoW/jv8J7sFkMC6DWS2+92SK+FWsYugbHdvxu13OeQhyKOy/0FlOdDGoAj6Zi3VYvKhJ59lRXC1nTtyKQJ9a1jCFbSLzuj7fkW448BQ3QzJeVcfdgxMG82oC2WkEmX9O3yd27FzyiHqEiz+HcLwITsQIzW5+UaLKEX2WMlwh/CheEdgkDiaynE4DUmMRaDGoDrd2QZG9bbLJVZ/ey5Kw5RmDbE8fojbiFCMxzgjHA4dusCUn/o7qe1wfx9K1a1O6YQAYVbTn/9FjUbbzkVmPlBVWpdvsb41LsdWJGfOAjnc+q4hWfpqUbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxs=",
+      "chatMessage": false
+    },
+    {
+      "name": "sealed",
+      "base64": "AQoDAAABi8/laAAAAAAAlm+xRc6Zx9HyknCDM8rEM7GznDzKhKt/m2b4RwkWKTNp1krHfrXQI5C9DwQ0tvtXT76XrgNbJTDVT6MmDz3IoytTiFthB+1myqeV1Q0cKx95T4HtUD4RGsrlVABcX5aVFAFd7t1m7bQyFwbhXTo+j5Kro3j/K9SJivMlChiQUoj0pvcRGWyUUaCMNkL7uOKBpZ2jMWMKgVpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+      "chatMessage": false
+    },
+    {
+      "name": "group control",
+      "base64": "AQwDAAABi8/laAAAAAAAlua/FR5eObkrQesmhQOfuHBwLr9bB6QNpWpqqI11frO06clslenVEKwp6RiGkU5CstsF2rt3/KuYgfnhA0BUASfI+qMge2iZ6ihw9UrU0H8moXUHP87oxuChM8BFVBCE8SZMLCTEs6jRsl3h+48LWUyoikASGKp753WQBoxSxtJ+WVpe6/6lq6o6jHYBxpAW8jLtlonk6lpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWg==",
+      "chatMessage": false
+    }
+  ]
+}

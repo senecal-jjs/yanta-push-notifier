@@ -1,0 +1,17 @@
+<configuration>
+    <!-- Privacy rule 1: log events, never tokens, tags, IPs or bodies. Third-party
+         libraries stay at WARN so their debug output (which can include tokens or
+         request details) never reaches the logs. -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{ISO8601} %-5level %logger{20} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.yantagram.push" level="INFO"/>
+    <logger name="io.ktor.server.Application" level="INFO"/>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

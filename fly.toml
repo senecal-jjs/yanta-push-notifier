@@ -1,0 +1,47 @@
+app = "yantagram-push-notifier"
+primary_region = "iad"           # same region as the strfry relay
+
+[build]
+
+[env]
+  PORT = "8080"
+  METRICS_PORT = "9091"
+  STRFRY_URL = "ws://yantagram-relay.internal:7777"
+  EVENT_KIND = "2929"
+  DB_PATH = "/data/push.db"
+  APNS_TOPIC = "com.yantagram.yantagram"
+  APNS_ENV = "production"  # "production" or "sandbox"
+  COALESCE_SECONDS = "30"
+  ALERT_COALESCE_SECONDS = "10"
+  REGISTRATION_TTL_DAYS = "14"
+# Secrets (fly secrets set, filled from 1Password; never in the image):
+#   APNS_KEY_P8 APNS_KEY_ID APNS_TEAM_ID FCM_PROJECT_ID FCM_CLIENT_EMAIL FIREBASE_PRIVATE_KEY
+
+# fly volumes create push_data --region iad --size 1
+[mounts]
+  source = "push_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "off"     # it holds a subscription to strfry
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    method = "GET"
+    path = "/health"
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "30s"
+
+# Scraped by Fly's managed Prometheus over the private network. Port 9091 has no
+# public service, so /metrics is never reachable from the internet.
+[metrics]
+  port = 9091
+  path = "/metrics"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
