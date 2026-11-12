@@ -156,7 +156,9 @@ no device.
 
 Whether an event is a chat message comes from the packet's plaintext header
 (`PacketKind`, a port of the app's `packet-kind.ts`, tested against its shared vectors):
-a MESSAGE packet, or the first fragment of a fragmented message.
+a MESSAGE packet, or the first fragment of a fragmented message. A packet with the quiet
+flag (`raw[11] & 0x02`) never is: the app sets it on a resend of a message the group was
+already alerted for, so retries wake recipients silently instead of alerting again.
 
 | Platform | alerts | Chat message | Push |
 |---|---|---|---|

@@ -21,8 +21,11 @@ val CHAT: String = Base64.getEncoder().encodeToString(packet(type = 4))
 /** A SEALED packet (type 9, a delivery ACK): not a chat message. */
 val ACK: String = Base64.getEncoder().encodeToString(packet(type = 9))
 
-fun packet(type: Int, payload: ByteArray = ByteArray(40) { 0x5a }): ByteArray {
-    val header = byteArrayOf(1, type.toByte(), 3, 0, 0, 1, -117, -49, -27, 104, 0, 0) +
+/** A MESSAGE packet with the quiet flag (0x02): a resend, not a chat message. */
+val QUIET_CHAT: String = Base64.getEncoder().encodeToString(packet(type = 4, flags = 0x02))
+
+fun packet(type: Int, payload: ByteArray = ByteArray(40) { 0x5a }, flags: Int = 0): ByteArray {
+    val header = byteArrayOf(1, type.toByte(), 3, 0, 0, 1, -117, -49, -27, 104, 0, flags.toByte()) +
         byteArrayOf(0, 0, 0, payload.size.toByte())
     return header + payload
 }
@@ -62,6 +65,11 @@ class MatcherTest {
     fun `iOS gets a silent push for anything that isn't a chat message`() = runTest {
         assertEquals(PushKind.SILENT, pushFor(Platform.IOS, alerts = true, ACK))
         assertEquals(PushKind.SILENT, pushFor(Platform.IOS, alerts = false, ACK))
+    }
+
+    @Test
+    fun `iOS gets a silent push for a quiet resend of a chat message`() = runTest {
+        assertEquals(PushKind.SILENT, pushFor(Platform.IOS, alerts = true, QUIET_CHAT))
     }
 
     @Test

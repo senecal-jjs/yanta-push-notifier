@@ -12,12 +12,17 @@ import java.util.zip.Inflater
  * Packet header: version(1) type(1) hops(1) timestamp(8) flags(1) length(4), then
  * [originalSize(4) if compressed] and the payload. Fragment payload: setId(16) type(1)
  * index(2) total(2) next(16) data.
+ *
+ * Flags: 0x01 compressed; 0x02 quiet, a resend of a message the group was already alerted
+ * for (the app's quiet-retries-plan.md), which is never a chat message. Other bits are
+ * ignored.
  */
 object PacketKind {
     private const val HEADER_SIZE = 16
     private const val TYPE_MESSAGE = 4
     private const val TYPE_FRAGMENT = 8
     private const val FLAG_COMPRESSED = 0x01
+    private const val FLAG_QUIET = 0x02
     private const val FRAGMENT_TYPE_MESSAGE = 3
     private const val FRAGMENT_HEADER_SIZE = 37
     private const val MAX_MESSAGE_FRAGMENTS = 48
@@ -38,6 +43,7 @@ object PacketKind {
         val type = raw.u8(1)
         val length = raw.u32(12)
         if (HEADER_SIZE + length > raw.size) return false
+        if (raw.u8(11) and FLAG_QUIET != 0) return false
         if (type == TYPE_MESSAGE) return true
         if (type != TYPE_FRAGMENT) return false
 
